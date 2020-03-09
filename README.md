@@ -1,4 +1,4 @@
-# Cccadm
+# ccc-adm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
@@ -25,3 +25,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Firebase
+
+`npm install -g firebase-tools`
+
+`npm install --save firebase @angular/fire`
+
+## Angular Material
+
+`npm add @angular/material`
+
+## FlexLayout
+
+`npm i @angular/flex-layout@8.0.0-beta.27`
+
+`npm install --save tslib`
+
+## Angular
+
+`ng g m AppRouting -m app --flat` 
+
+`ng g i models/Book`
+
+`ng g s services/Book`
+
+`ng update @angular/core @angular/cli`
