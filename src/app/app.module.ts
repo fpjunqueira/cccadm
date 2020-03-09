@@ -7,10 +7,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
+import { SociosComponent } from './socios/socios.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SociosComponent
   ],
   imports: [
     BrowserModule,

@@ -51,3 +51,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `ng g s services/Book`
 
 `ng update @angular/core @angular/cli`
+
+## Comandos
+
+`ng g c Socios -m app`
