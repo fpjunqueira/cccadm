@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SocioService } from '../services/socio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Socio } from '../models/socio';
 import { Observable } from 'rxjs';
+import { Socio } from 'src/app/models/socio';
+import { SocioService } from 'src/app/services/socio.service';
 
 @Component({
   selector: 'app-socios',
@@ -54,10 +54,10 @@ export class SociosComponent implements OnInit {
   addSocio(socio: Socio) {
     this.socioService.addSocio(socio)
       .then(() => {
-        this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 2000});
+        this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 7000});
       })
       .catch(e => {
-        this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 2000});
+        this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 7000});
 
       });
   }

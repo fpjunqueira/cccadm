@@ -1,6 +1,11 @@
 <div fxFill>
+  <mat-toolbar color="">
+    <mat-toolbar-row>
+      <span>Sócios</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-tab-group mat-stretch-tabs class="mat-elevation-z4" fxFill>
 
-    <mat-tab-group mat-stretch-tabs class="mat-elevation-z4" fxFill>
       <mat-tab label="Dados Principais">
           <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
             <form [formGroup]="socioForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch" #f>
@@ -46,8 +51,8 @@
               </mat-form-field> -->
         
               <div fxLayout="row" fxLayoutAlign="end end" >
-                <button  mat-button color="primary"  type="submit" [disabled]="!socioForm.valid">Submit</button>          
-                <button mat-button color="warn"  type="reset">Cancel</button>
+                <button  mat-button color="primary"  type="submit" [disabled]="!socioForm.valid">Salvar</button>          
+                <button mat-button color="warn"  type="reset">Cancelar</button>
               </div>
                
             </form>
