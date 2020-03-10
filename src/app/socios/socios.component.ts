@@ -18,6 +18,7 @@ export class SociosComponent implements OnInit {
     'matricula',
     'dataNascimento',
     'documento',
+    'operations',
   ];
 
   constructor(
@@ -32,9 +33,9 @@ export class SociosComponent implements OnInit {
     dataNascimento: ['', Validators.required],
     matricula: ['', Validators.required],
     documento: ['', Validators.required],
-    dataMatricula: ['', Validators.required],
-    ehTitular: ['', Validators.required],
-    titular: ['', Validators.required],
+    // dataMatricula: ['', Validators.required],
+    // ehTitular: ['', Validators.required],
+    // titular: ['', Validators.required],
   });
 
   ngOnInit(): void {

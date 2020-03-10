@@ -1,9 +1,9 @@
 <div fxFill>
 
     <mat-tab-group mat-stretch-tabs class="mat-elevation-z4" fxFill>
-      <mat-tab label="Todos os Sócios">
+      <mat-tab label="Dados Principais">
           <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
-            <form [formGroup]="socioForm" (ngSubmit)="onSubmit()" fxLayout="row" fxLayoutAlign="space-around stretch" #f>
+            <form [formGroup]="socioForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch" #f>
                 
               <!-- id: [undefined],-->
               <!-- <mat-form-field fxFlex="13">
@@ -11,22 +11,22 @@
               </mat-form-field> -->
 
               <!-- nome: ['', Validators.required],-->
-              <mat-form-field fxFlex="40">
+              <mat-form-field >
                 <input matInput placeholder="Nome"  formControlName='nome' #nome>
               </mat-form-field>
 
               <!-- dataNascimento: ['', Validators.required],-->
-              <mat-form-field fxFlex="40">
+              <mat-form-field >
                 <input matInput placeholder="Data de Nascimento"  formControlName='dataNascimento' #dataNascimento>
               </mat-form-field>
 
               <!-- matricula: ['', Validators.required],-->
-              <mat-form-field fxFlex="20">
+              <mat-form-field >
                 <input matInput placeholder="Matrícula"  formControlName='matricula' #matricula>
               </mat-form-field>
 
               <!-- documento: ['', Validators.required],-->
-              <mat-form-field fxFlex="20">
+              <mat-form-field >
                 <input matInput placeholder="Documento"  formControlName='documento' #documento>
               </mat-form-field>
 
@@ -121,22 +121,22 @@
           </div>
   
       </mat-tab>
-      <mat-tab label="Find">
+      <mat-tab label="Endereço">
   
-          <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
+          <!-- <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
             <mat-form-field fxFlex>
                 <input matInput placeholder="Search products" >
             </mat-form-field>
-          </div>
-  
-          <ul>
-            <li>Prod1</li>
-            <li>Prod2</li>
-            <li>Prod3</li>
-            <li>Prod4</li>
-          </ul>
+          </div> -->
   
       </mat-tab>
+
+      <mat-tab label="Dependentes">
+      </mat-tab>
+
+      <mat-tab label="Financeiro">
+      </mat-tab>
+
     </mat-tab-group>
   </div>
   

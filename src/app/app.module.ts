@@ -9,11 +9,17 @@ import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { SociosComponent } from './socios/socios.component';
 import { MaterialModule } from './material.module';
+import { SocioComponent } from './socio/socio.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SociosComponent
+    SociosComponent,
+    SocioComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
