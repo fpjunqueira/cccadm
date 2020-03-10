@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SocioService } from '../services/socio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Socio } from '../models/socio';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-socios',
@@ -10,11 +12,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SociosComponent implements OnInit {
 
-    constructor(
-      private fb: FormBuilder,
-      private socioService: SocioService,
-      private snackBar: MatSnackBar
-    ) { }
+  socios$: Observable<Socio[]>;
+  displayedColumns = [
+    'nome',
+    'matricula',
+    'dataNascimento',
+    'documento',
+  ];
+
+  constructor(
+    private fb: FormBuilder,
+    private socioService: SocioService,
+    private snackBar: MatSnackBar
+  ) { }
 
   socioForm = this.fb.group({
     id: [undefined],
@@ -28,10 +38,31 @@ export class SociosComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.socios$ = this.socioService.getSocios();
   }
 
   onSubmit(): void {
-    
+    const socio: Socio = this.socioForm.value;
+    if (!socio.id) {
+      this.addSocio(socio);
+    } else {
+      this.updateSocio(socio);
+    }
+  }
+
+  addSocio(socio: Socio) {
+    this.socioService.addSocio(socio)
+      .then(() => {
+        this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 2000});
+      })
+      .catch(e => {
+        this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 2000});
+
+      });
+  }
+
+  updateSocio(socio: Socio) {
+
   }
 
 }

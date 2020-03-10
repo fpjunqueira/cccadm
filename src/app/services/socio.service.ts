@@ -8,14 +8,15 @@ import { Socio } from '../models/socio';
 })
 export class SocioService {
 
-  private sociosCollection: AngularFirestoreCollection<Socio> = this.asf.collection('socios');
-  constructor(private asf: AngularFirestore) { }
+  private sociosCollection: AngularFirestoreCollection<Socio> = this.afs.collection('socios');
+
+  constructor(private afs: AngularFirestore) { }
 
   getSocios(): Observable<Socio[]> {
     return this.sociosCollection.valueChanges();
   }
 
   addSocio(socio: Socio) {
-    this.sociosCollection.add(socio);
+    return this.sociosCollection.add(socio);
   }
 }
