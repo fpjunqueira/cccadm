@@ -2,11 +2,12 @@
     <mat-toolbar-row>
         <span>Cristina Country Club</span>
         <span class="example-spacer"></span>
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-        <button mat-button (click)='btnHomeColorClick()' [color]="btnHomeColor" type="reset" routerLink='home'>Home</button>
-        <button mat-button (click)='btnSociosColorClick()' [color]="btnSociosColor" type="reset" routerLink='socios'>Sócios</button>
-        <button mat-button (click)='btnEventosColorClick()' [color]="btnEventosColor" type="reset" routerLink='eventos'>Eventos</button>
-        <button mat-button (click)='btnPatrimonioColorClick()' [color]="btnPatrimonioColor" type="reset" routerLink='patrimonio'>Patrimônio</button>
-        <button mat-button (click)='btnFinanceiroColorClick()' [color]="btnFinanceiroColor" type="reset" routerLink='financeiro'>Financeiro</button>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="heart icon">pool</mat-icon>
+        <button mat-button  [color]="btnHomeColor" type="reset" routerLink='home' routerLinkActive='mat-accent'>Home</button>
+        <button mat-button  [color]="btnSociosColor" type="reset" routerLink='socios' routerLinkActive='mat-accent'>Sócios</button>
+        <button mat-button  [color]="btnEventosColor" type="reset" routerLink='eventos' routerLinkActive='mat-accent'>Eventos</button>
+        <button mat-button  [color]="btnPatrimonioColor" type="reset" routerLink='patrimonio' routerLinkActive='mat-accent'>Patrimônio</button>
+        <button mat-button  [color]="btnFinanceiroColor" type="reset" routerLink='financeiro' routerLinkActive='mat-accent'>Financeiro</button>
+
     </mat-toolbar-row>
 </mat-toolbar>
