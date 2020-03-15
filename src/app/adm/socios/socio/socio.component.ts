@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SocioService } from 'src/app/services/socio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,6 +11,8 @@ import { Socio } from 'src/app/models/socio';
   styleUrls: ['./socio.component.css']
 })
 export class SocioComponent implements OnInit {
+
+  @ViewChild('nome') nomeSocio: ElementRef;
 
   socios$: Observable<Socio[]>;
 
@@ -48,10 +50,11 @@ export class SocioComponent implements OnInit {
     this.socioService.addSocio(socio)
       .then(() => {
         this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 7000});
+        this.socioForm.reset({id: undefined, nome: '', dataNascimento: '', matricula: '', documento: '',})
+        this.nomeSocio.nativeElement.focus();
       })
       .catch(e => {
         this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 7000});
-
       });
   }
 

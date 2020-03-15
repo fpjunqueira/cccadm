@@ -28,33 +28,11 @@ export class SociosComponent implements OnInit {
     private snackBar: MatSnackBar
   ) { }
 
-  // socioForm = this.fb.group({
-  //   id: [undefined],
-  //   nome: ['', Validators.required],
-  //   dataNascimento: ['', Validators.required],
-  //   matricula: ['', Validators.required],
-  //   documento: ['', Validators.required],
-  //   // dataMatricula: ['', Validators.required],
-  //   // ehTitular: ['', Validators.required],
-  //   // titular: ['', Validators.required],
-  // });
-
   ngOnInit(): void {
     this.socios$ = this.socioService.getSocios();
   }
 
-  // Esse submit deve ser para o find
-
-  // onSubmit(): void {
-  //   const socio: Socio = this.socioForm.value;
-  //   if (!socio.id) {
-  //     this.addSocio(socio);
-  //   } else {
-  //     this.updateSocio(socio);
-  //   }
-  // }
-
-  addSocio(socio: Socio) {
+  addSocio() {
     // this.socioService.addSocio(socio)
     //   .then(() => {
     //     this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 7000});
@@ -66,9 +44,4 @@ export class SociosComponent implements OnInit {
 
     // Vair para tela de inclusão de sócios
   }
-
-  updateSocio(socio: Socio) {
-
-  }
-
 }

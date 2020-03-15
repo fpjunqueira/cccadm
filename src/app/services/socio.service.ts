@@ -17,6 +17,8 @@ export class SocioService {
   }
 
   addSocio(socio: Socio) {
-    return this.sociosCollection.add(socio);
+    // return this.sociosCollection.add(socio);
+    socio.id = this.afs.createId();
+    return this.sociosCollection.doc(socio.id).set(socio);
   }
 }

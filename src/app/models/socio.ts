@@ -1,6 +1,6 @@
 export interface Socio {
 
-    id: number;
+    id: string;
     nome: string;
     dataNascimento: string;
     matricula: string;
