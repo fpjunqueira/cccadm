@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Socio } from 'src/app/models/socio';
@@ -23,9 +23,8 @@ export class SociosComponent implements OnInit {
   ];
 
   constructor(
-    private fb: FormBuilder,
     private socioService: SocioService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -43,5 +42,16 @@ export class SociosComponent implements OnInit {
     //   });
 
     // Vair para tela de inclusão de sócios
+  }
+
+  removeSocio(socio: Socio) {
+    this.socioService.removeSocio(socio)
+      .then(() => {
+        this.snackBar.open('Sócio excluído com sucesso.', 'OK', {duration: 7000});
+      })
+      .catch(error => {
+        console.log('Erro ao excluir sócio', error);
+        this.snackBar.open('Sócio excluído com sucesso.', 'OK', {duration: 7000});
+      });
   }
 }

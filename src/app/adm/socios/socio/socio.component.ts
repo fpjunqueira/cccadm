@@ -4,6 +4,7 @@ import { SocioService } from 'src/app/services/socio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Socio } from 'src/app/models/socio';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-socio',
@@ -14,13 +15,16 @@ export class SocioComponent implements OnInit {
 
   @ViewChild('nome') nomeSocio: ElementRef;
 
-  socios$: Observable<Socio[]>;
+  socio$: Observable<Socio>;
+  novo = false;
 
   constructor(
     private fb: FormBuilder,
     private socioService: SocioService,
-    private snackBar: MatSnackBar
-  ) { }
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {  }
 
   socioForm = this.fb.group({
     id: [undefined],
@@ -34,7 +38,20 @@ export class SocioComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.socios$ = this.socioService.getSocios();
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== 'new') {
+      this.socio$ = this.socioService.getSocioById(id) as Observable<Socio>;
+      this.socio$
+        .subscribe(
+          socio => {
+            return this.socioForm.setValue(socio);
+          },
+          error => {
+            return console.log('Não foi possível buscar sócio', error);
+          });
+    } else {
+      this.novo = true;
+    }
   }
 
   onSubmit(): void {
@@ -50,16 +67,23 @@ export class SocioComponent implements OnInit {
     this.socioService.addSocio(socio)
       .then(() => {
         this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 7000});
-        this.socioForm.reset({id: undefined, nome: '', dataNascimento: '', matricula: '', documento: '',})
-        this.nomeSocio.nativeElement.focus();
+        // this.socioForm.reset({id: undefined, nome: '', dataNascimento: '', matricula: '', documento: '',});
+        // this.nomeSocio.nativeElement.focus();
+        this.router.navigate(['/socios']);
       })
       .catch(e => {
-        this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 7000});
+        this.snackBar.open('Erro ao adicionar sócio', 'OK', {duration: 7000});
       });
   }
 
   updateSocio(socio: Socio) {
-
+    this.socioService.updateSocio(socio)
+      .then(() => {
+        this.snackBar.open('Sócio atualizado com sucesso.', 'OK', {duration: 7000});
+        this.router.navigate(['/socios']);
+      })
+      .catch(e => {
+        this.snackBar.open('Erro ao atualizar sócio', 'OK', {duration: 7000});
+      });
   }
-
 }

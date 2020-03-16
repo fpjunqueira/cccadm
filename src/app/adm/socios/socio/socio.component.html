@@ -1,80 +1,84 @@
+<!-- <div *ngIf="(socio$ | async as socio) || novo; else loading" fxFill> -->
 <div fxFill>
-    <mat-toolbar color="">
-      <mat-toolbar-row>
-        <span>Sócios</span>
-      </mat-toolbar-row>
-    </mat-toolbar>
+  <mat-toolbar color="">
+    <mat-toolbar-row>
+      <span>Sócios</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <form [formGroup]="socioForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch" #f>
     <mat-tab-group mat-stretch-tabs class="mat-elevation-z4" fxFill>
+      <mat-tab label="Dados Principais">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
+              
+            <!-- id: [undefined],-->
+            <!-- <mat-form-field fxFlex="13">
+              <input matInput placeholder="ID"  formControlName='id' #id>
+            </mat-form-field> -->
+
+            <!-- nome: ['', Validators.required],-->
+            <mat-form-field >
+              <input matInput placeholder="Nome"  formControlName='nome' #nome>
+            </mat-form-field>
+
+            <!-- dataNascimento: ['', Validators.required],-->
+            <mat-form-field >
+              <input matInput placeholder="Data de Nascimento"  formControlName='dataNascimento' #dataNascimento>
+            </mat-form-field>
+
+            <!-- matricula: ['', Validators.required],-->
+            <mat-form-field >
+              <input matInput placeholder="Matrícula"  formControlName='matricula' #matricula>
+            </mat-form-field>
+
+            <!-- documento: ['', Validators.required],-->
+            <mat-form-field >
+              <input matInput placeholder="Documento"  formControlName='documento' #documento>
+            </mat-form-field>
+
+            <!-- dataMatricula: ['', Validators.required],-->
+            <!-- <mat-form-field fxFlex="13">
+              <input matInput placeholder="Data de Matrícula"  formControlName='dataMatricula' #dataMatricula>
+            </mat-form-field> -->
+
+            <!-- ehTitular: ['', Validators.required],-->
+            <!-- <mat-form-field fxFlex="13">
+              <input matInput placeholder="Dono da Cota"  formControlName='ehTitular' #ehTitular>
+            </mat-form-field> -->
+
+            <!-- titular: ['', Validators.required],-->
+            <!-- <mat-form-field fxFlex="13">
+              <input matInput placeholder="Titular"  formControlName='titular' #titular>
+            </mat-form-field> -->
+      
+        </div>
+        <mat-divider></mat-divider>
+      </mat-tab>
+      <mat-tab label="Endereço">
   
-        <mat-tab label="Dados Principais">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
-              <form [formGroup]="socioForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch" #f>
-                  
-                <!-- id: [undefined],-->
-                <!-- <mat-form-field fxFlex="13">
-                  <input matInput placeholder="ID"  formControlName='id' #id>
-                </mat-form-field> -->
+          <!-- <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
+            <mat-form-field fxFlex>
+                <input matInput placeholder="Search products" >
+            </mat-form-field>
+          </div> -->
   
-                <!-- nome: ['', Validators.required],-->
-                <mat-form-field >
-                  <input matInput placeholder="Nome"  formControlName='nome' #nome>
-                </mat-form-field>
-  
-                <!-- dataNascimento: ['', Validators.required],-->
-                <mat-form-field >
-                  <input matInput placeholder="Data de Nascimento"  formControlName='dataNascimento' #dataNascimento>
-                </mat-form-field>
-  
-                <!-- matricula: ['', Validators.required],-->
-                <mat-form-field >
-                  <input matInput placeholder="Matrícula"  formControlName='matricula' #matricula>
-                </mat-form-field>
-  
-                <!-- documento: ['', Validators.required],-->
-                <mat-form-field >
-                  <input matInput placeholder="Documento"  formControlName='documento' #documento>
-                </mat-form-field>
-  
-                <!-- dataMatricula: ['', Validators.required],-->
-                <!-- <mat-form-field fxFlex="13">
-                  <input matInput placeholder="Data de Matrícula"  formControlName='dataMatricula' #dataMatricula>
-                </mat-form-field> -->
-  
-                <!-- ehTitular: ['', Validators.required],-->
-                <!-- <mat-form-field fxFlex="13">
-                  <input matInput placeholder="Dono da Cota"  formControlName='ehTitular' #ehTitular>
-                </mat-form-field> -->
-  
-                <!-- titular: ['', Validators.required],-->
-                <!-- <mat-form-field fxFlex="13">
-                  <input matInput placeholder="Titular"  formControlName='titular' #titular>
-                </mat-form-field> -->
-          
-                <div fxLayout="row" fxLayoutAlign="end end" >
-                  <button  mat-button color="primary"  type="submit" [disabled]="!socioForm.valid">Salvar</button>          
-                  <button mat-button color="warn"  type="reset">Cancelar</button>
-                </div>
-                 
-              </form>
-            </div>
-            <mat-divider></mat-divider>
-        </mat-tab>
-        <mat-tab label="Endereço">
-    
-            <!-- <div fxLayout="column" fxLayoutAlign="space-around stretch" style="padding: 20px; background: #f0f0f0">
-              <mat-form-field fxFlex>
-                  <input matInput placeholder="Search products" >
-              </mat-form-field>
-            </div> -->
-    
-        </mat-tab>
-  
-        <mat-tab label="Dependentes">
-        </mat-tab>
-  
-        <mat-tab label="Financeiro">
-        </mat-tab>
-  
-      </mat-tab-group>
+      </mat-tab>
+
+      <mat-tab label="Dependentes">
+      </mat-tab>
+
+      <mat-tab label="Financeiro">
+      </mat-tab>
+
+    </mat-tab-group>
+
+    <div fxLayout="row" fxLayoutAlign="end end" >
+      <button  mat-button color="primary"  type="submit" [disabled]="!socioForm.valid">Salvar</button>          
+      <button mat-button color="warn" type="reset" routerLink='/socios'>Cancelar</button>
     </div>
+  </form>
+</div>
+
+<ng-template #loading>
+  <mat-spinner class="loading"></mat-spinner>
+</ng-template>
     

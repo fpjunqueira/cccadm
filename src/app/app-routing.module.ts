@@ -14,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'financeiro', component: FinanceiroComponent},
   { path: 'patrimonio', component: PatrimonioComponent},
   { path: 'socios', component: SociosComponent},
+  { path: 'socios/:id', component: SocioComponent},
   { path: 'socios/new', component: SocioComponent},
   { path: 'home', component: HomeComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home'},

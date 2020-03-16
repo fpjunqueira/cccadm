@@ -21,4 +21,16 @@ export class SocioService {
     socio.id = this.afs.createId();
     return this.sociosCollection.doc(socio.id).set(socio);
   }
+
+  getSocioById(id) {
+    return this.sociosCollection.doc(id).valueChanges();
+  }
+
+  updateSocio(socio: Socio) {
+    return this.sociosCollection.doc(socio.id).set(socio);
+  }
+
+  removeSocio(socio: Socio) {
+    return this.sociosCollection.doc(socio.id).delete();
+  }
 }
