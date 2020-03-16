@@ -52,6 +52,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 `ng update @angular/core @angular/cli`
 
-## Comandos
-
 `ng g c Socios -m app`
+
+## TODO
+
+* Autenticação
+* Find sócios
+* Sócios/Endereço
+* Sócios/Dependentes
+* Sócios/Financeiro
+* Módulo Eventos
+* Módulo Patrimônio
+* Módulo Financeiro
