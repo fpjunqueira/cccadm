@@ -17,6 +17,8 @@ import { EventosComponent } from './adm/eventos/eventos.component';
 import { FinanceiroComponent } from './adm/financeiro/financeiro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
+    MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    MaterialModule,
+    ReactiveFormsModule,
+    AuthModule,
     AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
