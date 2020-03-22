@@ -8,16 +8,17 @@ import { PatrimonioComponent } from './adm/patrimonio/patrimonio.component';
 import { SociosComponent } from './adm/socios/socios/socios.component';
 import { HomeComponent } from './home/home.component';
 import { SocioComponent } from './adm/socios/socio/socio.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'eventos', component: EventosComponent},
-  { path: 'financeiro', component: FinanceiroComponent},
-  { path: 'patrimonio', component: PatrimonioComponent},
-  { path: 'socios', component: SociosComponent},
-  { path: 'socios/:id', component: SocioComponent},
-  { path: 'socios/new', component: SocioComponent},
-  { path: 'home', component: HomeComponent},
-  { path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: 'eventos', component: EventosComponent, canActivate: [AuthGuardService]},
+  { path: 'financeiro', component: FinanceiroComponent, canActivate: [AuthGuardService]},
+  { path: 'patrimonio', component: PatrimonioComponent, canActivate: [AuthGuardService]},
+  { path: 'socios', component: SociosComponent, canActivate: [AuthGuardService]},
+  { path: 'socios/:id', component: SocioComponent, canActivate: [AuthGuardService]},
+  { path: 'socios/new', component: SocioComponent, canActivate: [AuthGuardService]},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
+  { path: '', pathMatch: 'full', redirectTo: '/auth/login'},
   { path: '**', component: PageNotFoundComponent},
 ];
 

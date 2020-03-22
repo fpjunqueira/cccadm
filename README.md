@@ -57,6 +57,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Auth
 
 `ng g m Auth --routing`
+`ng g s auth/auth`
 
 ## TODO
 
