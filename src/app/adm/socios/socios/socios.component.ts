@@ -31,19 +31,6 @@ export class SociosComponent implements OnInit {
     this.socios$ = this.socioService.getSocios();
   }
 
-  addSocio() {
-    // this.socioService.addSocio(socio)
-    //   .then(() => {
-    //     this.snackBar.open('Sócio adicionado com sucesso.', 'OK', {duration: 7000});
-    //   })
-    //   .catch(e => {
-    //     this.snackBar.open('Não foi possível adicionar sócio', 'OK', {duration: 7000});
-
-    //   });
-
-    // Vair para tela de inclusão de sócios
-  }
-
   removeSocio(socio: Socio) {
     this.socioService.removeSocio(socio)
       .then(() => {
