@@ -59,13 +59,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `ng g m Auth --routing`
 `ng g s auth/auth`
 
-## TODO
+## Firebase
 
-* Autenticação
-* Find sócios
-* Sócios/Endereço
-* Sócios/Dependentes
-* Sócios/Financeiro
-* Módulo Eventos
-* Módulo Patrimônio
-* Módulo Financeiro
+`firebase login:ci`
+
+`firebase init`
+
+`firebase deploy`
