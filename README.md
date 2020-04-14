@@ -1,5 +1,7 @@
 # ccc-adm
 
+[![Build Status](https://travis-ci.org/fpjunqueira/ccc-adm.svg?branch=master)](https://travis-ci.org/fpjunqueira/ccc-adm)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
 ## Development server
